@@ -1,23 +1,43 @@
-import logo from './logo.svg';
+//******************CSS**************************
 import './App.css';
+import './assets/css/header.css';
+import './assets/css/footer.css';
+import './assets/css/characters.css';
+import './assets/css/comics.css';
+import './assets/css/home.css';
+//******************package**********************
+import React from "react";
+import { useState } from "react";
+import {BrowserRouter as Router,  Switch,  Route,  Link} from "react-router-dom";
+// import Cookies from "js-cookie";
+//******************Components*******************
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+//******************Containers*******************
+import Home from "./containers/Home";
+import Characters from "./containers/Characters";
+import Comics from "./containers/Comics";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="body">
+    <Router>
+      <Header/>
+      <Switch>
+        <Route path="/comics/:characterId">
+          <Comics />
+        </Route>
+        <Route path="/Characters">
+          <Characters />
+        </Route>
+        <Route path="/">
+          <Home/>
+        </Route>
+      </Switch>
+      <Footer/>
+    </Router>
     </div>
   );
 }
