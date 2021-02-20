@@ -1,5 +1,5 @@
 .characters {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     border: solid 1px;
     background-color: #242424;
@@ -17,7 +17,7 @@
 
 }
 
-.content_characters div {
+.content_characters div a {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -28,13 +28,13 @@
 
 .content_characters div a img {
     width: auto;
-    height: 400px;
+    height: 300px;
     border: solid 2px rgb(82, 0, 0);
     cursor: pointer;
     object-fit: cover;
 }
 
-.content_characters div span,
+.content_characters div a span,
 h3 {
     color: white;
     padding: 10px;

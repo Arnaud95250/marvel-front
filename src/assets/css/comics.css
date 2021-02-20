@@ -1,3 +1,46 @@
+.comics,
+h1 {
+    color: white;
+}
+
+.comics {
+    width: 80%;
+    margin: 0 auto;
+    border: solid 1px;
+    background-color: #242424;
+    text-align: center;
+}
+
 .comics h1 {
     color: white;
+}
+
+.content_comics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.content_comics div a {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 600px;
+    margin: 10px;
+    margin-bottom: 30px;
+}
+
+.content_comics div a img {
+    width: auto;
+    height: 300px;
+    border: solid 2px rgb(82, 0, 0);
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.content_comics div a span,
+h3 {
+    color: white;
+    padding: 10px;
 }

@@ -16,6 +16,7 @@ import Footer from "./components/Footer";
 //******************Containers*******************
 import Home from "./containers/Home";
 import Characters from "./containers/Characters";
+import CharactersId from "./containers/CharactersId";
 import Comics from "./containers/Comics";
 
 
@@ -26,11 +27,14 @@ function App() {
     <Router>
       <Header/>
       <Switch>
-        <Route path="/comics/:characterId">
+        <Route path="/comics">
           <Comics />
         </Route>
         <Route path="/Characters">
-          <Characters />
+          <Characters/>
+        </Route>
+        <Route path="/CharactersId/:characterId">
+          <CharactersId/>
         </Route>
         <Route path="/">
           <Home/>

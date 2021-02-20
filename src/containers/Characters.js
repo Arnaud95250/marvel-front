@@ -8,12 +8,9 @@ const Characters = () => {
 
     useEffect(() => {
       const fetchData = async () => {
-          const limit = 100;
-          const skip = 0;
-
 
           try{  
-            const response = await axios.get(`http://localhost:3000/characters?skip=${skip}&limit=${limit}`);
+            const response = await axios.get(`http://localhost:3000/characters`);
               const characters = response.data.characters;
               console.log(characters);
               setData(response.data);
@@ -29,19 +26,21 @@ const Characters = () => {
     return (
       <div className="characters">
           <h1>CHARACTERS</h1>
+          <Link to="comics">direction la page comics</Link>
           {isLoading ? (
             <span>En cours de chargement... </span>
             ) : (
               <div className="content_characters">
                 {data.results.map((characters, index) => {
                   return (
-                    <Link to="comics/:characterId">
-                    <div key={index}>
-                      <img src={characters.thumbnail.path + "." +characters.thumbnail.extension} alt={characters.name}/>
-                      <h3>{characters.name}</h3>
-                      <span>{characters.description}</span> 
-                    </div>
-                    </Link>
+                    
+                      <div key={index}>
+                        <Link to={`/characterId/${characters._id}`}>
+                        <img src={characters.thumbnail.path + "." +characters.thumbnail.extension} alt={characters.name}/>
+                        <h3>{characters.name}</h3>
+                        <span>{characters.description}</span> 
+                        </Link>
+                      </div>
                     );
                 })}
               </div>
