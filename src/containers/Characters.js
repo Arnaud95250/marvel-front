@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 
 const Characters = () => {
+
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
       const fetchData = async () => {
 
-          try{  
+          try{ 
             const response = await axios.get(`http://localhost:3000/characters`);
               const characters = response.data.characters;
               console.log(characters);
@@ -36,7 +37,7 @@ const Characters = () => {
                     
                       <div key={index}>
                         <Link to={`/characterId/${characters._id}`}>
-                        <img src={characters.thumbnail.path + "." +characters.thumbnail.extension} alt={characters.name}/>
+                        <img src={characters.thumbnail.path + "." + characters.thumbnail.extension} alt={characters.name}/>
                         <h3>{characters.name}</h3>
                         <span>{characters.description}</span> 
                         </Link>

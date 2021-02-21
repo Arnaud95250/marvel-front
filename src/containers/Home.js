@@ -6,7 +6,6 @@ import axios from 'axios';
 const Home = () => {
   const [characters, setCharacters] = useState();
   const [comics, setComics] = useState();
-  // const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -14,11 +13,6 @@ const Home = () => {
           try{  
             const responseCharacters = await axios.get(`http://localhost:3000/characters?limit=7`);
             const responseComics = await axios.get(`http://localhost:3000/comics?limit=7`);
-              
-            const characters = responseCharacters.data.characters;
-            const comics = responseComics.data.comics;
-              console.log(characters);
-              console.log(comics);
               setCharacters(responseCharacters.data);
               setComics(responseComics.data);
               setIsLoading(false);
