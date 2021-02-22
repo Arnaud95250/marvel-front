@@ -62,7 +62,7 @@ function App() {
         <Route path="/Characters">
           <Characters/>
         </Route>
-        <Route path="/CharactersCars/:characterId">
+        <Route path="/characterId/:characterId">
           <CharactersCars/>
         </Route>
         <Route path="/">

@@ -3,32 +3,73 @@ import { useState,useEffect } from "react";
 import axios from 'axios';
 
 const CharactersCars = () => {
-    const {characters_id} = useParams;
+    const {characterId} = useParams;
     const [data, setData] = useState();
-    // const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
-            try{  
+            try {
                 const response = await axios.get(
-                `https://lereacteur-marvel-api.herokuapp.com/comics/${characters_id}`
-                  );
-                  console.log(response.data);
-                  setData(response.data.characters);
-                //   setIsLoading(false);
-            } catch (error){
+                    `https://marvel-backend-clemence.herokuapp.com/comics/${characterId}`
+                );
+
+                // Apppelle le param
+                // Résultat de la requête selon l'Id du perso
+
+                const character = response.data.characters;
+                // console.log(character);
+
+                setData(character);
+
+                setIsLoading(false);
+            } catch (error) {
                 console.log(error.message);
             }
         };
         fetchData();
-      }, []);
-    
+    }, [setData, characterId]);
 
-    return(
-        <div className="characters_id">
-            <p>toto</p>
+    return isLoading ? (
+        <div className="loading">
+            <div>
+                <strong>Page en cours de chargement...</strong>
+            </div>
         </div>
-    )
+    ) : (
+        <div className="bg-white">
+            <div className="perso">
+                <div>
+                    <img
+                        src={
+                            data.thumbnail.path + "." + data.thumbnail.extension
+                        }
+                        alt=""
+                    />
+
+                    <h2>{data.name}</h2>
+                </div>
+                <div>
+                    {data.comics.map((comics, indexCardComics) => {
+                        return (
+                            <div key={indexCardComics}>
+                                <h3>{comics.title}</h3>
+                                <p>{comics.description}</p>
+                                <img
+                                    src={
+                                        comics.thumbnail.path +
+                                        "." +
+                                        comics.thumbnail.extension
+                                    }
+                                    alt=""
+                                />
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default CharactersCars;

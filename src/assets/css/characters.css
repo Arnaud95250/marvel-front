@@ -38,9 +38,7 @@
 
 .content_characters div a img:hover {
     border: solid 2px rgb(255, 255, 255);
-    opacity: 70%;
     box-shadow: 0px 0px 50px 0px white;
-
 }
 
 .content_characters div a span,
