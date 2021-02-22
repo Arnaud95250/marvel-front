@@ -13,7 +13,7 @@ const Join = ({setUser}) => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      const response = await axios.post("http://localhost:3000/join",{
+      const response = await axios.post("https://marvel--back.herokuapp.com/join",{
           username: username,
           email: email,
           phone: phone,

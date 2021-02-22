@@ -4,20 +4,20 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const SignIn = ({setUser}) => {
-    const [email, setEmail] = useState(""); // variable qui stock ma value email de mon input
-    const [password, setPassword] = useState(""); // variable qui stock ma value password de mon input
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const history = useHistory();
 
     const handleSubmit = (event) => {
-        event.preventDefault();// Permets de garder le formulaire rempli s'il y a une erreur
+        event.preventDefault();
         const fetchData = async () => {
             try{
-                const reponse = await axios.post("http://localhost:3000/signIn", { // chemin vers mon API ou je fais fais une methode POST pour identification d'un membre
-                    email: email, // je recupère la value qi se trouve dans mon input email et j'envoie les données en POST
+                const reponse = await axios.post("https://marvel--back.herokuapp.com/signIn", { 
+                    email: email, 
                     password: password
             });
-            setUser(reponse.data.token);// je récupère le token du membre dans les paramettre de la fonction setUser(les paramettre son retrensmit dans le parent et stocké dans un cookie)
+            setUser(reponse.data.token);
 
             history.push("/"); 
             } catch (error){
