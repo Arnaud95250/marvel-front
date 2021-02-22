@@ -11,6 +11,7 @@ const Comics = () => {
       const fetchData = async () => {
           try{  
               const response = await axios.get(`http://localhost:3000/comics`);
+              const response = await axios.get(`https://git.heroku.com/marvel--back.git/comics`);
               const comics = response.data.comics;
               console.log(comics);
               setData(response.data);

@@ -11,8 +11,10 @@ const Home = () => {
     useEffect(() => {
       const fetchData = async () => {
           try{  
-            const responseCharacters = await axios.get(`http://localhost:3000/characters?limit=7`);
-            const responseComics = await axios.get(`http://localhost:3000/comics?limit=7`);
+            // const responseCharacters = await axios.get(`http://localhost:3000/characters?limit=7`);
+            // const responseComics = await axios.get(`http://localhost:3000/comics?limit=7`);
+            const responseCharacters = await axios.get(`https://git.heroku.com/marvel--back.git/characters?limit=7`);
+            const responseComics = await axios.get(`https://git.heroku.com/marvel--back.git/comics?limit=7`);
               setCharacters(responseCharacters.data);
               setComics(responseComics.data);
               setIsLoading(false);

@@ -11,7 +11,8 @@ const Characters = () => {
       const fetchData = async () => {
 
           try{ 
-            const response = await axios.get(`http://localhost:3000/characters`);
+            // const response = await axios.get(`http://localhost:3000/characters`);
+            const response = await axios.get(`https://git.heroku.com/marvel--back.git/characters`);
               const characters = response.data.characters;
               console.log(characters);
               setData(response.data);
@@ -34,8 +35,8 @@ const Characters = () => {
                 {data.results.map((characters, index) => {
                   return (
                     
-                      <div >
-                        <Link  to={`/cardcharacters/${characters.id}`} key={index}>
+                      <div key={index}>
+                        <Link  to={`/cardcharacters/${characters.id}`} >
                         <img src={characters.thumbnail.path + "." + characters.thumbnail.extension} alt={characters.name}/>
                         <h3>{characters.name}</h3>
                         <span>{characters.description}</span> 
