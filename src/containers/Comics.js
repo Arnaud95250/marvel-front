@@ -28,7 +28,6 @@ const Comics = () => {
     return (
       <div className="comics">
           <h1>comics</h1>
-          <Link to="characters">direction la page personnage</Link>
           {isLoading ? (
             <span>En cours de chargement... </span>
             ) : (

@@ -19,7 +19,7 @@ import Home from "./containers/Home";
 import Join from "./containers/Join";
 import SignIn from "./containers/SignIn";
 import Characters from "./containers/Characters";
-import CharactersCars from "./containers/CharactersCars";
+import CardCharacter  from "./containers/CardCharacter ";
 import Comics from "./containers/Comics";
 
 
@@ -62,8 +62,8 @@ function App() {
         <Route path="/Characters">
           <Characters/>
         </Route>
-        <Route path="/characterId/:characterId">
-          <CharactersCars/>
+        <Route path="/cardcharacters/:characterId">
+          <CardCharacter />
         </Route>
         <Route path="/">
           <Home/>

@@ -2,7 +2,7 @@ import {useParams} from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from 'axios';
 
-const CharactersCars = () => {
+const CardCharacter  = () => {
     const {characterId} = useParams;
     const [data, setData] = useState();
     const [isLoading, setIsLoading] = useState(true);
@@ -10,15 +10,9 @@ const CharactersCars = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(
-                    `https://marvel-backend-clemence.herokuapp.com/comics/${characterId}`
-                );
-
-                // Apppelle le param
-                // Résultat de la requête selon l'Id du perso
-
-                const character = response.data.characters;
-                // console.log(character);
+                const response = await axios.get(`http://localhost:3000/comics/${characterId}`);
+                const character = response.data;
+                console.log(character);
 
                 setData(character);
 
@@ -40,17 +34,17 @@ const CharactersCars = () => {
         <div className="bg-white">
             <div className="perso">
                 <div>
-                    <img
+                    {/* <img
                         src={
                             data.thumbnail.path + "." + data.thumbnail.extension
                         }
                         alt=""
-                    />
+                    /> */}
 
-                    <h2>{data.name}</h2>
+                    {/* <h2>{data.name}</h2> */}
                 </div>
                 <div>
-                    {data.comics.map((comics, indexCardComics) => {
+                    {/* {data.comics.map((comics, indexCardComics) => {
                         return (
                             <div key={indexCardComics}>
                                 <h3>{comics.title}</h3>
@@ -65,11 +59,11 @@ const CharactersCars = () => {
                                 />
                             </div>
                         );
-                    })}
+                    })} */}
                 </div>
             </div>
         </div>
     );
 }
 
-export default CharactersCars;
+export default CardCharacter ;

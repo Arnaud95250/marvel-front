@@ -11,8 +11,8 @@ const Home = () => {
     useEffect(() => {
       const fetchData = async () => {
           try{  
-            const responseCharacters = await axios.get(`https://sharp-lichterman-1c20d3.netlify.app/characters?limit=7`);
-            const responseComics = await axios.get(`https://sharp-lichterman-1c20d3.netlify.app/comics?limit=7`);
+            const responseCharacters = await axios.get(`http://localhost:3000/characters?limit=7`);
+            const responseComics = await axios.get(`http://localhost:3000/comics?limit=7`);
               setCharacters(responseCharacters.data);
               setComics(responseComics.data);
               setIsLoading(false);

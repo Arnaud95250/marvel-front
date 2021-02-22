@@ -11,7 +11,7 @@ const Characters = () => {
       const fetchData = async () => {
 
           try{ 
-            const response = await axios.get(`https://sharp-lichterman-1c20d3.netlify.app/characters`);
+            const response = await axios.get(`http://localhost:3000/characters`);
               const characters = response.data.characters;
               console.log(characters);
               setData(response.data);
@@ -27,7 +27,6 @@ const Characters = () => {
     return (
       <div className="characters">
           <h1>CHARACTERS</h1>
-          <Link to="comics">direction la page comics</Link>
           {isLoading ? (
             <span>En cours de chargement... </span>
             ) : (
@@ -36,7 +35,7 @@ const Characters = () => {
                   return (
                     
                       <div >
-                        <Link key={index} to={`/characterId/${characters._id}`}>
+                        <Link  to={`/cardcharacters/${characters.id}`} key={index}>
                         <img src={characters.thumbnail.path + "." + characters.thumbnail.extension} alt={characters.name}/>
                         <h3>{characters.name}</h3>
                         <span>{characters.description}</span> 
