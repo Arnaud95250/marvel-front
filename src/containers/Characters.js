@@ -12,7 +12,7 @@ const Characters = () => {
 
           try{ 
             // const response = await axios.get(`http://localhost:3000/characters`);
-            const response = await axios.get(`https://git.heroku.com/marvel--back.git/characters`);
+            const response = await axios.get(`https://marvel--back.herokuapp.com/characters`);
               const characters = response.data.characters;
               console.log(characters);
               setData(response.data);
