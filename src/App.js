@@ -1,14 +1,4 @@
-//******************CSS**************************
-// import "./App.css";
-// import "./assets/css/header.css";
-// import "./assets/css/footer.css";
-// import "./assets/css/form.css";
-// import "./assets/css/characters.css";
-// import "./assets/css/carsCharacters.css";
-// import "./assets/css/comics.css";
-// import "./assets/css/cardComics.css";
-// import "./assets/css/home.css";
-
+//******************SCSS**************************
 import "./App.scss";
 import "./assets/scss/components/header.scss";
 import "./assets/scss/components/footer.scss";
