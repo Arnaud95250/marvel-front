@@ -15,7 +15,9 @@ const Characters = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3100/characters`);
+        const response = await axios.get(
+          `https://marvel--back.herokuapp.com/characters`
+        );
         const characters = response.data;
         console.log(characters);
         setData(response.data);
@@ -29,9 +31,9 @@ const Characters = () => {
 
   const searchCharacters = async (value) => {
     try {
-      // const response = await axios.get(`http://localhost:3100/test/${value}`);
+      // const response = await axios.get(`https://marvel--back.herokuapp.com/test/${value}`);
       const response = await axios.get(
-        `http://localhost:3100/search-characters?name=${value}`
+        `https://marvel--back.herokuapp.com/search-characters?name=${value}`
       );
       console.log(response.data);
       setData(response.data);

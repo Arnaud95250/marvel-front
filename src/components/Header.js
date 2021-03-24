@@ -7,14 +7,6 @@ import Search from "../components/Search";
 const Header = () => {
   const [searchInput, setSearchInput] = useState("");
 
-  // const test = async (value) => {
-  //   try {
-  //     const response = await axios.get(
-  //       `http://localhost:3100/characters?title=${value}`
-  //     );
-  //   } catch (error) {}
-  // };
-
   return (
     <div className="header">
       <div>
