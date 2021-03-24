@@ -1,0 +1,51 @@
+.comics_info{
+    width: 100%;
+    padding: 50px 0px 50px 0px;
+    background-color: #202020;
+    h1{
+    color: white;
+    }
+    .comics_selectd{
+        width: 50%;
+        height: auto;
+        background: rgb(170, 20, 20);
+        border-radius: 10px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        border: solid 2px rgb(0, 0, 0);
+
+    }
+    .comics_selectd div:first-child {
+        width: 100%;
+        /* margin-right: -275px; */
+    }
+    .comics_selectd div:last-child {
+        width: 100%;
+        height: auto;
+        /* margin-right: -275px; */
+    }
+    .comics_selectd img{
+        width: 80%;
+        height: auto;
+        object-fit: contain;
+        border-top-left-radius: 10px ;
+        border-bottom-left-radius: 10px ;
+    }
+    .comics_selectd div h1{
+        padding: 30px 0px 0px 0px;
+        font-size: 28px;
+        color: white;
+        font-weight: 600;
+        width: 100%;
+    }
+    .comics_selectd div p{
+        margin: 30px 0px 0px 0px;
+        width: 90%;
+        height: auto;
+        font-size: 18px;
+        border: solid 2px black;
+        border-radius: 5px;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,87 @@
+.home {
+    height: auto;
+    text-align: center;
+    img {
+        width: 100%;
+        object-fit: cover;
+        border: solid 5px;
+        border-radius: 10px;
+        /* opacity: 60%; */
+    }
+    div h1 {
+        width: 80%;
+        margin: 0 auto;
+    }
+    h1 {
+        color: #9b9999;
+        font-weight: 500;
+        padding: 25px 0px 25px 0px;
+    }
+    /***********Fin CSS home***********************************/
+    /***********Début .map des characters page home************/
+    .characters_home {
+        width: 80%;
+        margin: 0 auto;
+        border: solid 1px;
+        background-color: #202020;
+        text-align: center;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    .characters_home h1 {
+        color: #9b9999;
+        padding: 40px;
+    }
+    .content_characters_home {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .content_characters_home div a img {
+        width: 130px;
+        height: 130px;
+        border: solid 2px rgb(82, 0, 0);
+        cursor: pointer;
+        object-fit: cover;
+        margin-bottom: 50px;
+    }
+    .content_characters_home div a :hover {
+        zoom: normal;
+        opacity: 70%;
+    }
+    /***********Fin .map des Characters page home************/
+    /***********Début .map des Comics page home************/
+    .comics_home {
+        width: 80%;
+        
+        margin: 0 auto;
+        border: solid 1px;
+        background-color: #202020;
+        text-align: center;
+        margin-bottom: 50px;
+        border-radius: 10px;
+    }
+    .comics_home h1 {
+        color: #9b9999;
+        padding: 40px;
+    }
+    .content_comics_home {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+    }
+    .content_comics_home div a img {
+        width: auto;
+        height: 200px;
+        border: solid 2px rgb(82, 0, 0);
+        cursor: pointer;
+        object-fit: cover;
+        margin-bottom: 50px;
+    }
+    .content_comics_home div a img:hover {
+        border: solid 2px rgb(78, 78, 78);
+        box-shadow: 0px 0px 50px 0px rgb(78, 78, 78);
+    }
+}
+/***********Fin .map des Comics page home************/
