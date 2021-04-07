@@ -1,5 +1,4 @@
 const Search = ({ searchCharacters }) => {
-  console.log("search");
   return (
     <div className="search">
       <input

@@ -1,0 +1,130 @@
+.comics_characters {
+    width: 100%;
+    margin: 0px 0px 20px 0px;
+    min-height: 81vh;
+    display: flex;
+    h1{
+        color: #9b9999;
+        margin: 20px 0px 20px 0px;
+        // margin-bottom: 20px;
+        text-align: center;
+    }
+    p{
+        color: #9b9999;
+        font-size: 18px;
+        width: 80%;
+    }
+    .characters_selected {
+        width: 100%;
+        border-radius: 10px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    hr {
+        border: none;
+        border-top: 3px double rgb(170, 20, 20);
+        color: #9b9999;
+        overflow: visible;
+        text-align: center;
+        height: 15px;
+        margin-top: 15px;
+    }
+    hr:after {
+        background: rgb(170, 20, 20);
+        content: 'Marvel';
+        border-radius: 5px;
+        padding: 4px 7px 4px 7px;
+        position: relative;
+        top: -13px;
+        font-weight: 500
+    }
+    .characters_selected img{
+        width: 30vw;
+        height: 69.5vh;
+        object-fit: cover;
+        border-radius: 50px;
+        padding: 20px;
+    }
+    .content_info{
+        display: flex;
+        flex-direction: column;
+        h1{
+            text-align: left;
+        }
+        .content_info_scroll{
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            // margin-bottom: 20px;
+            .scroll{
+                width: 60vw;
+                height: 200px;
+                margin: 0 auto;
+                display: flex;
+                overflow-x: scroll;
+                margin-right: 20px;
+                margin-bottom: 20px;
+                    
+                    .content_comics_characters{
+                        height: 180px;
+                        width: 90%;
+                        
+                    } 
+                    .content_comics_characters img{
+                        height: 175px;
+                        width: 175px;
+                        object-fit: cover;
+                        object-position: left top;
+                        border-radius: 5px;
+                        margin-right: 20px;
+                    }
+                }
+        }
+        
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .comics_characters {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        .characters_selected img{
+            margin: 0 auto;
+            width: 90vw;
+            height: 80%;
+            padding-left: 3%;
+        }
+        .content_info{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            h1{
+                text-align: center;
+                font-size: 24px;
+            }
+            p{
+                color: #9b9999;
+                font-size: 16px;
+                width: 90%;
+                text-align: center;
+                margin-left: 10px;
+                margin-bottom: 20px;
+            }
+            .content_info_scroll{
+                height: 100%;
+                display: flex;
+                align-items: flex-end;
+                .scroll{
+                    width: 90%;
+                    padding-right: 10px;
+                    margin-right: 10px;
+                    }
+            }
+            
+        }
+    }
+}

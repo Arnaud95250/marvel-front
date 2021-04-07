@@ -3,8 +3,10 @@ import "./App.scss";
 import "./assets/scss/components/header.scss";
 import "./assets/scss/components/footer.scss";
 import "./assets/scss/components/form.scss";
+import "./assets/scss/components/loader.scss";
+import "./assets/scss/components/pagination.scss";
 import "./assets/scss/containers/characters.scss";
-import "./assets/scss/containers/carsCharacters.scss";
+import "./assets/scss/containers/cardCharacters.scss";
 import "./assets/scss/containers/comics.scss";
 import "./assets/scss/containers/cardComics.scss";
 import "./assets/scss/containers/home.scss";
@@ -28,7 +30,6 @@ import Comics from "./containers/Comics";
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken" || null));
-  const [data, setData] = useState([]);
 
   const setUser = (token) => {
     // fonction qui pemet de récuper et stocker le token dans un cookie (envoyé en paramettre aux enfant dans les route login et signUp)
@@ -36,7 +37,8 @@ function App() {
       Cookies.set("userToken", token, { expires: 7 }); // création du cookie Cookies.set("nom_du_cookie", paramettre que je stock, { la date ou le cookie doit disparaitre: 7 });
       setUserToken(token); // met à jour le userToken
     } else {
-      Cookies.remove("userToken"); // si
+      Cookies.remove("userToken");
+      console.log(userToken);
       setUserToken(null);
     }
   };

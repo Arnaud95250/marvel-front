@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import hero from "../assets/img/hero3.jpg";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Loader from "../components/Loader";
 
 const Home = () => {
   const [characters, setCharacters] = useState();
@@ -39,7 +40,9 @@ const Home = () => {
       <div className="characters_home">
         <h1>CHARACTERS</h1>
         {isLoading ? (
-          <span>En cours de chargement... </span>
+          <div className="loading">
+            <Loader />
+          </div>
         ) : (
           <div className="content_characters_home">
             {characters.results.map((elem, index) => {
@@ -60,15 +63,16 @@ const Home = () => {
       </div>
 
       <div className="comics_home">
-        <h1>comics</h1>
+        <h1>COMICS</h1>
         {isLoading ? (
           <span>En cours de chargement... </span>
         ) : (
           <div className="content_comics_home">
             {comics.results.map((elem, index) => {
+              const comicsId = elem._id;
               return (
                 <div key={index}>
-                  <Link to={`/`}>
+                  <Link to={`/cardcomics/${comicsId}`}>
                     <img
                       src={elem.thumbnail.path + "." + elem.thumbnail.extension}
                       alt={elem.name}

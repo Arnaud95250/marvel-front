@@ -1,21 +1,23 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+// import components
+import Search from "../components/Search";
+import Loader from "../components/Loader";
+import Pagination from "../components/Pagination";
+import ComCard from "../components/ComCard";
+
 const Comics = () => {
-  // const {id} = useParams();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await axios.get(`http://localhost:3000/comics`);
         const response = await axios.get(
-          `https://marvel--back.herokuapp.com/comics`
+          `https://marvel--back.herokuapp.com/comics?limit=100&skip=${offset}`
         );
-        const comics = response.data.comics;
-        console.log(comics);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -23,45 +25,32 @@ const Comics = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [offset]);
+
+  const searchCharacters = async (value) => {
+    try {
+      const response = await axios.get(
+        `https://marvel--back.herokuapp.com/search-comics?title=${value}`
+      );
+      setData(response.data);
+    } catch (error) {}
+  };
 
   return (
     <div className="comics">
       <h1>COMICS</h1>
+      <div className="search_comics">
+        <Search searchCharacters={searchCharacters} />
+      </div>
       {isLoading ? (
-        <div
-          className="loading"
-          style={{
-            height: "80vh",
-            background: "rgb(92, 0, 0)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "white",
-            fontSize: "22px",
-            fontWeight: "700",
-          }}
-        >
-          <span>En cours de chargement... </span>
+        <div className="loading">
+          <Loader />
         </div>
       ) : (
-        <div className="content_comics">
-          {data.results.map((elem, index) => {
-            const comicsId = elem._id;
-            return (
-              <div key={index}>
-                <Link to={`/cardcomics/${comicsId}`}>
-                  <img
-                    src={elem.thumbnail.path + "." + elem.thumbnail.extension}
-                    alt={elem.name}
-                  />
-                  <h3>{elem.name}</h3>
-                  <span>{elem.description}</span>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
+        <>
+          <Pagination data={data} offset={offset} setOffset={setOffset} />
+          <ComCard data={data} />
+        </>
       )}
     </div>
   );
