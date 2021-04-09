@@ -8,17 +8,15 @@
     position: relative;
     z-index: 2;
     img{
-      background: rgb(158, 0, 0);
+      background: rgb(129, 0, 0);
       width: 30px;
       height: auto;
       border: none;
       border-radius: 20px;
-
       cursor: pointer;
-      opacity: 80%;
     }
     img:hover{
-      opacity: 60%;
+      background: rgb(182, 0, 0);
     }
     p{
       color: rgb(155, 153, 153);
